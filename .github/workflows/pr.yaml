@@ -1,0 +1,23 @@
+name: Pull Request
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install the code linting and formatting tool Ruff
+        run: pipx install ruff
+      - name: Lint code with Ruff
+        run: ruff check --output-format=github
+      - name: Check code formatting with Ruff
+        run: ruff format --diff
