@@ -2,6 +2,7 @@ from storage import load, save
 
 data = load()
 
+
 def add_dog(dog):
     already_exists = any(
         d["name"] == dog["name"] and d["owner_id"] == dog["owner_id"]
@@ -13,6 +14,7 @@ def add_dog(dog):
     data["dogs"].append(dog)
     save(data)
 
+
 def add_vaccine(vaccine):
     dog_exists = any(d["id"] == vaccine["dog_id"] for d in data["dogs"])
     if not dog_exists:
@@ -21,12 +23,14 @@ def add_vaccine(vaccine):
     data["vaccines"].append(vaccine)
     save(data)
 
+
 def list_dogs():
     if len(data["dogs"]) == 0:
         print("No dogs to list")
     else:
         for dog in data["dogs"]:
             print(f"{dog}\n")
+
 
 def main():
 
@@ -36,7 +40,7 @@ def main():
         print("2. List Dogs\n")
         print("3. Add vaccine\n")
         print("4. Quit")
-        
+
         choise = input("\nChoose: ")
         if choise == 1:
             continue
@@ -51,7 +55,5 @@ def main():
             break
 
 
-
 if __name__ == "__main__":
     main()
-

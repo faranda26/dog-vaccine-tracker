@@ -1,5 +1,4 @@
 class User:
-
     def __init__(self, id, name):
         self.id = id
         self.name = name
@@ -9,7 +8,6 @@ class User:
 
 
 class Dog:
-
     def __init__(self, id, name, age, breed, owner_id):
         self.id = id
         self.name = name
@@ -23,12 +21,9 @@ class Dog:
     def bark(self):
         return f"{self.name} says woof"
 
-    
 
 class Vaccine:
-
     def __init__(self, name, date, expire):
         self.name = name
         self.date = date
         self.expire = expire
-
