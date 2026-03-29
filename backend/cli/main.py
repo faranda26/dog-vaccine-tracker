@@ -22,7 +22,7 @@ def add_vaccine(vaccine):
     save(data)
 
 def list_dogs():
-    if length(data) == 0:
+    if len(data["dogs"]) == 0:
         print("No dogs to list")
     else:
         for dog in data["dogs"]:
